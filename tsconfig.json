@@ -11,15 +11,13 @@
 		"jsx": "react",
 		"baseUrl": ".",
 		"paths": {
-			"pages/*": ["src/pages"],
 			"src/*": ["src/*"],
 			"public/*": ["public/*"],
 			"images/*": ["public/images/*"],
+			"pages/*": ["src/pages"],
 			"constants/*": ["src/constants"],
 			"components/*": ["src/components/*"],
-			"actionTypes/*": ["src/store/actionTypes/*"],
-			"actions/*": ["src/store/actions/*"],
-			"reducers/*": ["src/store/reducers/*"]
+			"store/*": ["src/store/*"],
 		}
 	}
 }

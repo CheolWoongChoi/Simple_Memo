@@ -19,9 +19,7 @@ module.exports = function(env, argv) {
 				pages: path.resolve(__dirname, 'src/pages'),
 				constants: path.resolve(__dirname, 'src/constants'),
 				components: path.resolve(__dirname, 'src/components'),
-				actionTypes: path.resolve(__dirname, 'src/store/actionTypes'),
-				actions: path.resolve(__dirname, 'src/store/actions'),
-				reducers: path.resolve(__dirname, 'src/store/reducers'),
+				store: path.resolve(__dirname, 'src/store'),
 			}
 		},
 		entry: {
@@ -30,6 +28,7 @@ module.exports = function(env, argv) {
 		output: {
 			filename: '[name].js',
 			path: path.resolve(__dirname, 'build'),
+			publicPath: '/'
 		},
 		devServer: {
 			port: 3031,

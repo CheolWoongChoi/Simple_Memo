@@ -4,10 +4,9 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Home from 'pages/Home';
 import Memo from 'pages/Memo';
 import Trash from 'pages/Trash';
+import './App.scss';
 
 const App: FunctionComponent = () => {
-	console.log('app');
-
 	return (
 		<BrowserRouter>
 			<Switch>

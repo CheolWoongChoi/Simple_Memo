@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import github from './github';
+import memos from './memos';
 
 const rootReducer = combineReducers({
-	github
+	github,
+	memos
 });
 
 export default rootReducer;

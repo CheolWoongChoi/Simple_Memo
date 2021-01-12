@@ -1,23 +1,15 @@
 import * as React from 'react';
-import { FunctionComponent } from 'react';
+import { FunctionComponent, ReactElement } from 'react';
 import './Sidebar.scss';
 
-interface Props {
-
+interface SidebarProps {
+	children?: ReactElement | ReactElement[]
 }
 
-const Sidebar: FunctionComponent<Props> = () => {
+const Sidebar: FunctionComponent<SidebarProps> = ({ children }) => {
 	return (
 		<ul className='component-sidebar'>
-			<li>
-				폴더
-			</li>
-			<li>
-				1
-			</li>
-			<li>
-				2
-			</li>
+			{children}
 		</ul>
 	)
 };

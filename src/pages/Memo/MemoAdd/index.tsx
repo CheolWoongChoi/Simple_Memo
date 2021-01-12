@@ -1,12 +1,11 @@
 import * as React from 'react';
 import { FunctionComponent } from 'react';
 
-const Trash: FunctionComponent = () => {
+const MemoAdd: FunctionComponent = () => {
 	return (
 		<>
-			Trash
 		</>
-	)
+	);
 }
 
-export default Trash;
+export default MemoAdd;

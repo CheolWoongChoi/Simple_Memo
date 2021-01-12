@@ -7,4 +7,10 @@
 	height: calc(100% - 40px);
 	padding: 20px;
 	vertical-align: top;
+
+	a {
+		display: inline-block;
+		padding: 10px;
+		border: solid 1px #ddd;
+	}
 }

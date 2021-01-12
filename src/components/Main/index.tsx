@@ -1,13 +1,13 @@
 
 import * as React from 'react';
-import { FunctionComponent } from 'react';
+import { FunctionComponent, ReactElement } from 'react';
 import './Main.scss';
 
 interface MainProps {
-	children?: React.ReactComponentElement<any, any> | null;
+	children?: ReactElement | string | null;
 }
 
-const Main: FunctionComponent<MainProps> = ({ children }: MainProps) => {
+const Main: FunctionComponent<MainProps> = ({ children }) => {
 	return (
 		<div className='component-main'>
 			{children}
