@@ -1,0 +1,23 @@
+
+.component-sidebar {
+	display: inline-block;
+	margin: 0;
+	border: solid 1px #ddd;
+	padding: 0;
+	list-style-type: none;
+	width: 20%;
+	height: 100%;
+	vertical-align: top;
+
+	li {
+		padding: 20px 0;
+		padding-left: 10px;
+		border-bottom: solid 1px #ddd;
+
+		&:first-child {
+			font-size: 40px;
+			font-weight: bold;
+		}
+	}
+
+}

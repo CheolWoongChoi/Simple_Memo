@@ -11,6 +11,7 @@
 		"jsx": "react",
 		"baseUrl": ".",
 		"paths": {
+			"pages/*": ["src/pages"],
 			"src/*": ["src/*"],
 			"public/*": ["public/*"],
 			"images/*": ["public/images/*"],
