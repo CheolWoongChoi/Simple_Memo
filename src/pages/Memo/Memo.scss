@@ -1,0 +1,23 @@
+
+button {
+	background-color: transparent;
+	border: solid 1px #ddd;
+	padding: 10px;
+	outline: none;
+	cursor: pointer;
+
+	& + button {
+		margin-left: 15px;
+	}
+}
+
+textarea {
+	border: solid 1px #ddd;
+	margin-top: 20px;
+	padding: 20px;
+	outline: none;
+	width: calc(100% - 42px);
+	height: calc(100% - 102px);
+	resize: none;
+	line-height: 1.75;
+}

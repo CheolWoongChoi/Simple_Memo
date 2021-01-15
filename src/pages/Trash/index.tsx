@@ -8,30 +8,34 @@ import Layout from 'components/Layout';
 import Sidebar from 'components/Sidebar';
 import Main from 'components/Main';
 import ListItem from 'components/ListItem';
+import TrashRouter from './TrashRouter';
 import './Trash.scss';
 
 const Trash: FunctionComponent<{}> = () => {
-	// const { memos } = useSelector((state: RootState) => state.memos);
+	const { deletedMemos } = useSelector((state: RootState) => state.memos);
 
-	// const renderMemos = (memos: Memo[]) => {
-	// 	return memos.map((memo, idx) => (
-	// 		<ListItem key={idx}>
-	// 			<Link to={`/memo/${memo.id}`}>
-	// 				메모 {memo.id} 
-	// 			</Link>
-	// 		</ListItem>
-	// 	));
-	// }
+	const renderMemos = (memos: Memo[]) => {
+		return memos.map((memo, idx) => (
+			<ListItem key={idx}>
+				<Link to={`/trash/${memo.id}`}>
+					메모 {memo.id} 
+				</Link>
+			</ListItem>
+		));
+	}
 
 	return (
 		<Layout>
 			<Sidebar>
 				<ListItem isTitle>
-					<Link to='/'>&lt;</Link>
+					<Link to='/'>&lt; 홈으로</Link>
 				</ListItem>
+				<>
+					{renderMemos(deletedMemos)}
+				</>
 			</Sidebar>
 			<Main>
-				휴지통
+				<TrashRouter />
 			</Main>
 		</Layout>
 	);

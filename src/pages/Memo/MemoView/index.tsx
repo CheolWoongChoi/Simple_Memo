@@ -1,31 +1,60 @@
-
 import * as React from 'react';
-import { FunctionComponent } from 'react';
-import { useSelector } from 'react-redux';
-import { RouteComponentProps, withRouter } from 'react-router-dom';
-import { RootState } from 'src/store';
-import { Memo } from 'src/store/memos';
+import { FunctionComponent, useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useParams, useHistory } from 'react-router-dom';
+import * as moment from 'moment';
+import { RootState } from 'store';
+import { modifyMemo, deleteMemo } from 'store/memos';
 
 interface MemoViewParams {
-	id: string
+  id: string;
 }
 
-const MemoView: FunctionComponent<RouteComponentProps<MemoViewParams>> = (props) => {
-	const { memos } = useSelector((state: RootState) => state.memos);
-	const { match: { params } } = props;
+const MemoView: FunctionComponent = () => {
+  const { id } = useParams<MemoViewParams>();
+  const { memos } = useSelector((state: RootState) => state.memos);
+  const memo = memos.find((memo) => memo.id === Number(id));
+  const [text, setText] = useState(memo?.content);
+  const dispatch = useDispatch();
+  const history = useHistory();
 
-	const memo = memos.find((memo: Memo) => memo.id === Number(params.id));
+  const handleText = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
+    setText(e.target.value);
 
-	return (
-		<>
-			<p>
-				{`createdAt: ${memo?.createdAt}`}
-			</p>
-			<p>
-				{memo?.content}
-			</p>
-		</>
-	);
-}
+  const handleModifyMemo = () => {
+    const result = confirm('수정하시겠습니까?');
+    const modifiedAt = moment().format('YYYY-MM-DD HH:mm:ss');
 
-export default withRouter(MemoView);
+    if (!result) return;
+
+    dispatch(
+			modifyMemo({ id: Number(id), createdAt: modifiedAt, content: text })
+    );
+  };
+
+  const handleDeleteMemo = () => {
+    const result = confirm('삭제하시겠습니까?');
+
+    if (!result) return;
+
+    dispatch(deleteMemo(Number(id)));
+    history.push('/memo');
+  };
+
+  useEffect(() => {
+    setText(memo?.content);
+  }, [id]);
+
+  return (
+    <>
+      <div>
+        <button>{`작성일: ${memo?.createdAt}`}</button>
+        <button onClick={handleModifyMemo}>수정</button>
+        <button onClick={handleDeleteMemo}>삭제</button>
+      </div>
+      <textarea value={text} onChange={handleText}></textarea>
+    </>
+  );
+};
+
+export default MemoView;

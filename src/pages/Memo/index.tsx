@@ -11,7 +11,7 @@ import ListItem from 'components/ListItem';
 import MemoRouter from './MemoRouter';
 import './Memo.scss';
 
-const Memo: FunctionComponent<{}> = () => {
+const Memo: FunctionComponent = () => {
 	const { memos } = useSelector((state: RootState) => state.memos);
 
 	const renderMemos = (memos: Memo[]) => {
@@ -28,7 +28,7 @@ const Memo: FunctionComponent<{}> = () => {
 		<Layout>
 			<Sidebar>
 				<ListItem isTitle>
-					<Link to='/'>&lt;</Link>
+					<Link to='/'>&lt; 홈으로</Link>
 				</ListItem>
 				<>
 					{renderMemos(memos)}

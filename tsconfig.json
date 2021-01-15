@@ -11,12 +11,15 @@
 		"jsx": "react",
 		"baseUrl": ".",
 		"paths": {
+			"src": ["src"],
 			"src/*": ["src/*"],
 			"public/*": ["public/*"],
 			"images/*": ["public/images/*"],
 			"pages/*": ["src/pages"],
-			"constants/*": ["src/constants"],
+			"constants": ["src/constants"],
+			"constants/*": ["src/constants/*"],
 			"components/*": ["src/components/*"],
+			"store": ["src/store"],
 			"store/*": ["src/store/*"],
 		}
 	}

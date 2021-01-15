@@ -12,7 +12,7 @@ const Home: FunctionComponent = () => {
 		<Layout>
 			<Sidebar>
 				<ListItem isTitle>
-					폴더
+					홈
 				</ListItem>
 				<ListItem>
 					<Link to='/memo'>메모</Link>
