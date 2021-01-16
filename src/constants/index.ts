@@ -15,3 +15,9 @@ export const memosData = [
 		createdAt: '2021-01-01 11:11:11'
 	}
 ]; 
+
+export declare namespace firebase {
+	function hi (
+		a: string,
+	): void
+}
